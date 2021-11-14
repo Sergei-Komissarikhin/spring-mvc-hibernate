@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+<h1>Доступные пользователи</h1>
+<table th:width="500" th:border="2">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Role</th>
+        </tr>
+    </thead>
+
+    <tr th:each="user :${userList}">
+        <td th:text = "${user.getId()}"/>
+        <td th:text = "${user.getFirstName()}"/>
+        <td th:text = "${user.getLastName()}"/>
+        <td th:text = "${user.getAge()}"/>
+        <td th:text = "${user.getPassword()}"/>
+        <td th:text = "${user.getRole()}"/>
+
+    </tr>
+</table>
+<br>
+<br>
+
+<a href="/askDetails">Добавление имени пользователя</a>
+<br>
+<a href="/update">Внести изменения по ID</a>
+<form method="get" action="/update">
+    <input type="number" name="id" th:placeholder="Long">
+    <input type="submit" name="update">
+</form>
+<br>
+
+</body>
+</html>
