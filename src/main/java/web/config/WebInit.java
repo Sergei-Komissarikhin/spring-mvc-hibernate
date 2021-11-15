@@ -36,4 +36,5 @@ public class WebInit extends AbstractAnnotationConfigDispatcherServletInitialize
         servletContext.addFilter("name", ef)
                 .addMappingForUrlPatterns(null, false, "/*");
     }
+
 }

@@ -17,23 +17,28 @@ public class UserDaoImpl implements UserDao{
 
     @Override
     public void addUser(User user) {
-        System.out.println("Сохранение юзера из ДАО");
         entityManager.persist(user);
     }
     @Override
     public List<User> getAllUsers(){
-        System.out.println("Получение всех юзеров");
         return entityManager.createQuery("SELECT u FROM User u", User.class).getResultList();
     }
 
     @Override
     public User getUserById(Long id){
-        return entityManager.find(User.class,id);
+        User user = entityManager.find(User.class,id);
+        return user;
     }
 
     @Override
     public void updateUser(User user){
         entityManager.merge(user);
+
     }
 
+    @Override
+    public void deleteUser(Long id) {
+        User user = entityManager.find(User.class, id);
+        entityManager.remove(user);
+    }
 }

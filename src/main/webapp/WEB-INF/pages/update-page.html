@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,9 +9,13 @@
 <h1>Внесите изменения</h1>
 <br>
 
-<form th:method ="POST" th:action="@{/updateById}" th:object="${user}">
-    <input type="text" th:field="*{firstName}"
-           placeholder="${user.firstName}"/>>
+<form th:method ="PATCH" th:action="@{/updateById}" th:object="${user}">
+
+
+    <input type="hidden" th:field="*{id}"/>
+
+    <input type="text" th:field="${user.firstName}"
+           placeholder="${user.firstName}"/>
     <br>
     ********************
     <br>
@@ -40,7 +44,7 @@
     <br>
     ********************
     <br>
-    <input type="submit" value="Save"/>
+    <input type="submit" value="Update"/>
 </form>
 
 </body>
