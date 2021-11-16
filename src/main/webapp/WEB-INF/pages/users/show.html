@@ -25,5 +25,8 @@
         <td th:text="${user.getRole()}"/>
     </tr>
 </table>
+Hello
+<br>
+<a th:href="@{users/{id}/edit}(id=${user.getId()})}">Edit</a>
 </body>
 </html>

@@ -20,7 +20,8 @@
 
     <tr th:each="user :${users}">
         <td th:text="${user.getId()}"/>
-        <td th:text="${user.getFirstName()}"/>
+        <td><a th:href="@{/users/{id}/edit(id=${user.getId()})}"  th:text="${user.getFirstName()}"></a></td>
+<!--        <td th:text="${user.getFirstName()}"/>-->
         <td th:text="${user.getLastName()}"/>
         <td th:text="${user.getAge()}"/>
         <td th:text="${user.getPassword()}"/>
@@ -28,5 +29,10 @@
 
     </tr>
 </table>
+<br>
+<hr>
+<form method="GET" action="/users/new">
+    <input type="submit" value="Create new User">
+</form>
 </body>
 </html>
