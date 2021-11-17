@@ -2,9 +2,11 @@
 <html lang="en" xmlns:th="www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Добавление юзера</title>
+    <title>Добавление пользователя</title>
 </head>
 <body>
+<p><h2>Добавление пользователя</h2></p>
+
 <div>
 <form th:method="POST" th:action="@{/users}" th:object="${user}">
 

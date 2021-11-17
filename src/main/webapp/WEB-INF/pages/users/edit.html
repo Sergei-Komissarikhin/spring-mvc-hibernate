@@ -2,10 +2,14 @@
 <html lang="en" xmlns:th="www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Редактирование юзера</title>
+    <title>Редактирование пользователя</title>
 </head>
 <body>
+<tr>Редактирование пользователя <h3 th:text="${user.getFirstName()}"></h3></tr>
+
+<br>
 <div>
+
     <form th:method="PATCH" th:action="@{/users/{id}(id=${user.getId()})}" th:object="${user}">
 
         <label for="name">Name: </label>
@@ -37,12 +41,14 @@
         <input type="text" th:field="*{role}" id="role">
 
         <br>
+        <hr>
 
         <input type="submit" value="Update">
 
-        <br>
-
     </form>
+
 </div>
+
 </body>
+
 </html>

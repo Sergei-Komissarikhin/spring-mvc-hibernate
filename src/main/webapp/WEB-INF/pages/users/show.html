@@ -25,8 +25,13 @@
         <td th:text="${user.getRole()}"/>
     </tr>
 </table>
-Hello
 <br>
-<a th:href="@{users/{id}/edit}(id=${user.getId()})}">Edit</a>
+<form th:method="GET" th:action="@{/users/{id}/edit(id=${user.getId()})}" th:object="${user}">
+    <input type="submit" value="Edit">
+</form>
+<br>
+<form th:method="DELETE" th:action="@{/users/{id}(id=${user.getId()})}" th:object="${user}">
+    <input type="submit" value="Delete">
+</form>
 </body>
 </html>

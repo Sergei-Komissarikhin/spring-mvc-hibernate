@@ -23,7 +23,7 @@ public class UserController {
         return "users/index";
     }
 
-    @GetMapping("/{id}/")
+    @GetMapping("/{id}")
     public String getUserById(@PathVariable("id") long id, Model model){
         model.addAttribute("user", userService.getUserById(id));
         System.out.println("hello");
@@ -34,6 +34,7 @@ public class UserController {
     public String newUser(@ModelAttribute("user") User user){
         return "users/new";
     }
+
 
     @PostMapping()
     public String createUser(@ModelAttribute("user") User user){
@@ -51,9 +52,14 @@ public class UserController {
     @PatchMapping("{id}")
     public String update(@PathVariable("id") long id,
                          @ModelAttribute("user") User user){
+        System.out.println("Пользователь " + user + " изменен");
         userService.updateUser(user);
         return "redirect:/users";
     }
 
-
+    @DeleteMapping("{id}")
+    public String delete(@PathVariable("id") long id){
+        userService.deleteUser(id);
+        return "redirect:/users";
+    }
 }

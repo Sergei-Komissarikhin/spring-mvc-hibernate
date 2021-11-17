@@ -7,6 +7,7 @@
 <body>
 
 <table th:width="500" th:border="2">
+    <p><h2>Доступные пользователи</h2></p>
     <thead>
     <tr>
         <th>ID</th>
@@ -20,7 +21,7 @@
 
     <tr th:each="user :${users}">
         <td th:text="${user.getId()}"/>
-        <td><a th:href="@{/users/{id}/edit(id=${user.getId()})}"  th:text="${user.getFirstName()}"></a></td>
+        <td><a th:href="@{/users/{id}(id=${user.getId()})}"  th:text="${user.getFirstName()}"></a></td>
 <!--        <td th:text="${user.getFirstName()}"/>-->
         <td th:text="${user.getLastName()}"/>
         <td th:text="${user.getAge()}"/>
@@ -31,7 +32,7 @@
 </table>
 <br>
 <hr>
-<form method="GET" action="/users/new">
+<form th:method="GET" th:action="@{/users/new}">
     <input type="submit" value="Create new User">
 </form>
 </body>
