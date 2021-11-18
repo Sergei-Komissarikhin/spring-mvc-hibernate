@@ -38,12 +38,6 @@ public class WebInit extends AbstractAnnotationConfigDispatcherServletInitialize
         registerHiddenFieldFilter(servletContext);
     }
 
-//    @Override
-//    public void onStartup(ServletContext aServletContext) throws ServletException {
-//        super.onStartup(aServletContext);
-//        registerHiddenFieldFilter(servletContext);
-//    }
-
     private void registerHiddenFieldFilter(ServletContext context) {
         context.addFilter("hiddenHttpMethodFilter",
                 new HiddenHttpMethodFilter()).addMappingForUrlPatterns(null ,true, "/*");

@@ -38,7 +38,11 @@
         <br>
 
         <label for="role">Role: </label>
-        <input type="text" th:field="*{role}" id="role">
+        <select th:field="*{role}" id="role">
+            <option th:each="role : ${roles}"
+                th:value="${role}"
+                th:text="${role}"></option>
+        </select>
 
         <br>
         <hr>
