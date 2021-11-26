@@ -7,7 +7,8 @@
 <body>
 
 <table th:width="500" th:border="2">
-    <p><h2>Доступные пользователи</h2></p>
+    <p>
+    <h2>Доступные пользователи</h2></p>
     <thead>
     <tr>
         <th>ID</th>
@@ -21,13 +22,23 @@
 
     <tr th:each="user :${users}">
         <td th:text="${user.getId()}"/>
-        <td><a th:href="@{/users/{id}(id=${user.getId()})}"  th:text="${user.getFirstName()}"></a></td>
-<!--        <td th:text="${user.getFirstName()}"/>-->
+        <td><a th:href="@{/users/{id}(id=${user.getId()})}" th:text="${user.getFirstName()}"></a></td>
+        <!--        <td th:text="${user.getFirstName()}"/>-->
         <td th:text="${user.getLastName()}"/>
         <td th:text="${user.getAge()}"/>
         <td th:text="${user.getPassword()}"/>
         <td th:text="${user.getRole()}"/>
+        <td>
+            <form th:method="GET" th:action="@{/users/{id}/edit(id=${user.getId()})}" th:object="${user}">
+                <input type="submit" value="Edit">
+            </form>
+        </td>
+        <td>
+            <form th:method="DELETE" th:action="@{/users/{id}(id=${user.getId()})}" th:object="${user}">
+                <input type="submit" value="Delete">
+            </form>
 
+        </td>
     </tr>
 </table>
 <br>

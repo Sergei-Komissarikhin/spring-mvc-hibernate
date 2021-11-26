@@ -6,3 +6,5 @@
 /.idea/vcs.xml
 /.idea/webContexts.xml
 /.idea/.gitignore
+/target/
+/.idea/
