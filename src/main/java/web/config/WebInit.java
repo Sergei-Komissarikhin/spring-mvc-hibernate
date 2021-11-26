@@ -13,7 +13,7 @@ import javax.servlet.ServletException;
 public class WebInit extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[]{AppConfig.class};
+        return null;
     }
 
     @Override
